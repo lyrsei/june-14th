@@ -1,0 +1,23 @@
+---
+title: "Census tracts"
+author: "Yesmine"
+format: html
+---
+
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+
+read_csv("mass-tracts.csv") |> ggplot(data, aes(x = income, fill = race)) +
+  geom_density(alpha = 0.5) +
+  labs(
+    title = "Median Income for Massachusetts Census Tracts",
+    subtitle = "The richest tracts are White",
+    x = "Median Income",
+    y = "Density",
+    fill = "Race",
+    caption = "The race of each tract is determined by the most numerous racial group present in that tract. Data from the American Community Survey 2022."
+  )
+```
